@@ -7,6 +7,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Serve frontend static files
+const path = require('path');
+app.use(express.static(path.join(__dirname, 'dist')));
+app.get(/^\/(?!api).*/, (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 const uri = process.env.MONGODB_URI;
 const client = new MongoClient(uri);
 

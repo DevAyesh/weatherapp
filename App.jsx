@@ -30,13 +30,13 @@ const WeatherApp = () => {
     try {
       // Current weather
       const weatherRes = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${import.meta.env.VITE_Open_Weather_API}`
       )
       setWeatherData(weatherRes.data)
 
       // Forecast (next 4 days, noon)
       const forecastRes = await axios.get(
-        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${import.meta.env.VITE_OPENWEATHER_API_KEY}`
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=${unit}&appid=${import.meta.env.VITE_Open_Weather_API}`
       )
       // Group by day, pick noon
       const daily = []
