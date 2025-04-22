@@ -22,25 +22,34 @@ This is a straightforward weather application that lets you check the current we
    git clone <your-repo-url>
    cd weatherapp
    ```
-2. Add a `.env` file in the root:
-   ```env
-   MONGODB_URI=your-mongodb-uri
-   PORT=4000
-   VITE_Open_Weather_API=your-openweathermap-api-key
-   ```
-3. Install dependencies:
-   ```sh
-   npm install
-   ```
-4. Build the frontend:
-   ```sh
-   npm run build
-   ```
-5. Start the backend (serves both API & frontend):
-   ```sh
-   node server.js
-   ```
-   Visit [http://localhost:4000](http://localhost:4000)
+2. Add your environment variables:
+
+    - For the frontend:  
+      Create `frontend/.env`:
+      ```
+      VITE_Open_Weather_API=your-openweathermap-api-key
+      ```
+    - For the backend:  
+      Create `backend/.env`:
+      ```
+      MONGODB_URI=your-mongodb-uri
+      ```
+3.Install dependencies and run the app:
+
+    - Frontend:
+      ```sh
+      cd frontend
+      npm install
+      npm run dev
+      ```
+    - Backend:
+      ```sh
+      cd backend
+      npm install
+      npm run dev
+      ```
+
+    The backend will serve the frontend production build when running in production mode.
 
 ### Using Docker
 Build and run the app in a container:
