@@ -1,0 +1,244 @@
+body {
+  background: #bcbcbc;
+  color: #22223b;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-frame {
+  background: #dde3ea;
+  border-radius: 10px;
+  margin: 2rem auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  width: 90vw;
+  max-width: 900px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+}
+
+.weather-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  color: #31343f;
+}
+
+.city-input {
+  font-size: 1.3rem;
+  font-weight: bold;
+  background: #f4f4f4;
+  border: 2px solid #bcbcbc;
+  border-radius: 5px;
+  padding: 0.2rem 0.6rem;
+  width: 140px;
+  margin-right: 0.5rem;
+}
+
+.search-btn {
+  background: #fff;
+  border: 1px solid #bcbcbc;
+  border-radius: 5px;
+  padding: 0.2rem 0.6rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.search-btn:hover {
+  background: #e2e8f0;
+}
+
+.weather-center {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.weather-icon {
+  color: #fbbf24;
+  background: #fff9e5;
+  border-radius: 50%;
+  padding: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.temp-main {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #22223b;
+}
+
+.temp-unit {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #5e6472;
+}
+
+.temp-range {
+  font-size: 1.1rem;
+  color: #6d6875;
+  margin-top: 0.3rem;
+}
+
+.weather-day {
+  font-size: 1rem;
+  color: #888;
+  margin-top: 0.2rem;
+}
+
+.weather-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.weather-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 1.1rem;
+  color: #22223b;
+}
+
+.forecast-row {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.forecast-card {
+  background: #f6f6f6;
+  border-radius: 8px;
+  padding: 1rem 1.3rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 90px;
+}
+
+.forecast-range {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #22223b;
+}
+
+.forecast-day {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-top: 0.5rem;
+  color: #31343f;
+}
+
+.unit-toggle {
+  background: #fff;
+  border: 1.5px solid #bcbcbc;
+  border-radius: 5px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #22223b;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.unit-toggle:hover {
+  background: #e2e8f0;
+}
+
+
+.search-input {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  width: 280px;
+}
+
+.search-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5);
+}
+
+.search-button {
+  background: linear-gradient(45deg, #6366f1, #8b5cf6) !important;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.weather-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+}
+
+.weather-card h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #fff, #94a3b8);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 1rem 0;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.forecast-item {
+  background: rgba(255, 255, 255, 0.08) !important;
+  padding: 1.25rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.forecast-item:hover {
+  transform: translateY(-3px);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1 }
+  50% { opacity: 0.5 }
+}
+
+.loading {
+  animation: pulse 1.5s infinite;
+}
