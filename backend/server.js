@@ -1,7 +1,7 @@
 const express = require('express');
 const { MongoClient } = require('mongodb');
 const cors = require('cors');
-require('dotenv').config();
+require('dotenv').config({ path: require('path').resolve(__dirname, '../.env') });
 
 const app = express();
 app.use(cors());
@@ -15,6 +15,10 @@ app.get(/^\/(?!api).*/, (req, res) => {
 });
 
 const uri = process.env.MONGODB_URI;
+if (!uri) {
+  console.error('ERROR: MONGODB_URI is not set in your .env file. Please add it and restart the server.');
+  process.exit(1);
+}
 const client = new MongoClient(uri);
 
 async function getDb() {

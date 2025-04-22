@@ -1,18 +1,18 @@
 # Stage 1: Build React frontend
 FROM node:20-alpine as build-frontend
-WORKDIR /app
-COPY package.json package-lock.json ./
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/package-lock.json ./
 RUN npm install
-COPY . .
+COPY frontend/ ./
 RUN npm run build
 
 # Stage 2: Run backend and serve frontend
 FROM node:20-alpine
-WORKDIR /app
-COPY --from=build-frontend /app /app
-
-# Install only production dependencies
+WORKDIR /app/backend
+COPY backend/package.json backend/package-lock.json ./
 RUN npm install --omit=dev
+COPY backend/ ./
+COPY --from=build-frontend /app/frontend/dist ./dist
 
 # Expose backend port
 EXPOSE 4000

@@ -164,5 +164,3 @@ useEffect(() => {
 }
 
 export default WeatherApp
-
-createRoot(document.getElementById('root')).render(<WeatherApp />)

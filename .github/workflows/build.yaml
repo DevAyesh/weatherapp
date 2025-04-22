@@ -23,16 +23,31 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Install dependencies
+      - name: Install frontend dependencies
         run: npm install
+        working-directory: frontend
       - name: Build frontend
         run: npm run build
-      - name: Lint
+        working-directory: frontend
+        env:
+          VITE_Open_Weather_API: ${{ secrets.VITE_Open_Weather_API }}
+      - name: Install backend dependencies
+        run: npm install
+        working-directory: backend
+      - name: Copy frontend build to backend
         run: |
-          npm run lint || echo "Linting errors (not fatal)"
+          rm -rf backend/dist
+          cp -r frontend/dist backend/
+      - name: Lint frontend
+        run: npm run lint || echo "Frontend linting errors (not fatal)"
+        working-directory: frontend
+      - name: Lint backend
+        run: npm run lint || echo "Backend linting errors (not fatal)"
+        working-directory: backend
       - name: Run backend tests (if present)
         run: |
-          if [ -f server.test.js ]; then npm test; else echo "No backend tests"; fi
+          if [ -f backend/server.test.js ]; then npm test; else echo "No backend tests"; fi
+        working-directory: backend
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
         with:
